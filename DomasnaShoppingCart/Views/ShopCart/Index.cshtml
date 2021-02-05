@@ -1,0 +1,54 @@
+﻿@model List<DomasnaShoppingCart.Models.ShoppAdmin.Shopping>
+@using DomasnaShoppingCart.Extension
+
+@{
+    ViewBag.Title = "Football Boots";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Add To Cart</th>
+        <th>Expiry Date</th>
+        <th>Brand</th>
+        <th>Logo</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Category</td>
+            <td>@item.Quantity</td>
+            <td>
+                @if (item.Quantity > 0)
+                {
+                    <p>Avaible</p>
+                    <a href="@Url.Action("AddToCart","ShopCart", new { id=item.Id})" class="nav-link"><i class="fa fa-shopping-cart" style="font-size:36px"></i></a>
+                }
+                else
+                {
+                    <p>Unavaible</p>
+                }
+            </td>
+            <td>@item.Expiry</td>
+            <td>@item.Brand</td>
+            <td>@Html.ImageBanner(item.LogoUrl, "Boot", "100", "100")</td>
+        </tr>
+    }
+</table>
+<p>
+    @if (DomasnaShoppingCart.Models.ShoppAdmin.DataModelShopp.Cart != null)
+    {
+        <a href="@Url.Action("MyCart","ShopCart")" class="nav-link">View Your Cart: @ViewBag.Count</a>
+    }
+
+</p>
+

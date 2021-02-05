@@ -1,0 +1,52 @@
+﻿@model DomasnaShoppingCart.Models.ShoppAdmin.Shopping
+
+
+<h1>Edit Your Boot</h1>
+
+
+@using (Html.BeginForm("Update", "ShoppAdmin", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Id)
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Id)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Price)
+        @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Price)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Category)
+        @Html.TextBoxFor(x => x.Category, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Category)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Quantity)
+        @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Quantity)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Expiry)
+        @Html.EditorFor(x => x.Expiry, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Expiry)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Brand)
+        @Html.EditorFor(x => x.Brand, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Brand)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.LogoUrl)
+        @Html.EditorFor(x => x.LogoUrl, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.LogoUrl)
+    </div>
+
+    <input type="submit" value="Create new Boot" class="btn btn-primary" />
+}
+

@@ -1,0 +1,43 @@
+﻿@model List<DomasnaShoppingCart.Models.ShoppAdmin.Shopping>
+@using DomasnaShoppingCart.Extension
+
+@{
+    ViewBag.Title = "Boots";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Expiry Date</th>
+        <th>Brand</th>
+        <th>Logo</th>
+        <th>Edit/Details/Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Category</td>
+            <td>@item.Quantity</td>
+            <td>@item.Expiry</td>
+            <td>@item.Brand</td>
+            <td>@Html.ImageBanner(item.LogoUrl, "Boot", "100", "100")</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Create New Boot", "Create", "ShoppAdmin")
+</p>

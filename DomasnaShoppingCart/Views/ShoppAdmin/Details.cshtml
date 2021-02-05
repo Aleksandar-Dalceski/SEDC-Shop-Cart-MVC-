@@ -1,0 +1,19 @@
+﻿@model DomasnaShoppingCart.Models.ShoppAdmin.Shopping
+@using DomasnaShoppingCart.Extension
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="mb-4">Details for Boot</h1>
+<div class="jumbotron text-left col-md-3 border border-dark">
+    <p class="font-weight-bold">ID: @Model.Id</p>
+    <p class="font-weight-bold">Boot Name: @Model.Name</p>
+    <p class="font-weight-bold">Boot Price: @Model.Price</p>
+    <p class="font-weight-bold">Boot Category: @Model.Category</p>
+    <p class="font-weight-bold">Boot Quantity: @Model.Quantity</p>
+    <p class="font-weight-bold">Boot Expiry Date: @Model.Expiry</p>
+    <p class="font-weight-bold">Boot Brand: @Model.Brand</p>
+    <p class="font-weight-bold">Boot Logo: @Html.ImageBanner(Model.LogoUrl, "Boot", "150", "150")</p>
+   
+    <a href="@Url.Action("Back","ShoppAdmin")">Back To List</a>
+</div>
